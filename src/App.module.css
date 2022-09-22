@@ -1,0 +1,100 @@
+.header {
+    display: flex;
+    justify-content: center;
+    margin: 4.5rem auto;
+}
+
+.header img {
+    height: 3rem;
+}
+
+.wrapper {
+    max-width: 47.875rem;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+.headerTodo {
+    margin-bottom: 4.0625rem;
+}
+
+.headerTodo form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem
+}
+
+.headerTodo input {
+    width: 100%;
+    height: 3.375rem;
+
+    padding: 1rem;
+
+    background-color: var(--gray-500);
+    border: 1px solid var(--gray-700);
+    border-radius: 8px;
+}
+
+.headerTodo button {
+    border: 0;
+    outline: 0;
+    height: 3.25rem;
+
+    padding: 1rem;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 0.875rem;
+    font-weight: bold;
+    line-height: 140%;
+    color: var(--gray-100);
+
+    background-color: var(--blue-dark);
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: color 0.1s;
+}
+
+.headerTodo button:hover {
+    background-color: var(--blue)
+}
+
+.contentHeaderTodo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 4.0625rem;
+}
+
+.contentHeaderTodo label {
+    margin-right: 0.5rem;
+}
+
+.contentHeaderTodo .contentHeaderTodoCreate {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.contentHeaderTodo .contentHeaderTodoFineshed {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: var(--purple);
+}
+
+.listsTodo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media (max-width: 767px) {
+    html {
+        font-size: 87.5%;
+    }
+}
