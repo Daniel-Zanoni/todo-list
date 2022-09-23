@@ -1,5 +1,5 @@
 import { Header } from './components/Header';
-import { FormCreateList } from './components/FormCreateList';
+import { TodoList } from './components/TodoList';
 
 import styles from './App.module.css';
 
@@ -11,7 +11,7 @@ export function App() {
            <Header />
             <div className={styles.wrapper}>
                 <main>
-                    <FormCreateList />
+                    <TodoList />
                 </main>
             </div>
         </div>

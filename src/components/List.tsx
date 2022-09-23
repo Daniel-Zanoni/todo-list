@@ -1,7 +1,8 @@
+import { useState } from 'react';
+
 import * as Checkbox from '@radix-ui/react-checkbox';
 
-import { Trash } from 'phosphor-react';
-import { useState } from 'react';
+import { Check, Trash } from 'phosphor-react';
 
 import styles from './List.module.css';
 
@@ -30,17 +31,25 @@ export function List({ content, onDeleteList }: ListProps) {
     }
 
     return (
-        <div className={styles.list}>
-            <Checkbox.Root 
-                className={styles.listInputCheckbox}
-                onClick={handleCompletedList}
-            >
-                <Checkbox.Indicator />
-            </Checkbox.Root>
-            <p>{content}</p>
-            <button onClick={handleDeleteComment} title="Deletar comentário">
-                <Trash size={20} />
-            </button>
-        </div>    
+        <div>
+            <div className={styles.list}>
+                <Checkbox.Root 
+                    className={styles.listInputCheckbox}
+                    onClick={handleCompletedList}
+                >
+                    <Checkbox.Indicator>
+                        <Check weight='bold' className={styles.listInputCheckboxChecked} />
+                    </Checkbox.Indicator>
+                </Checkbox.Root>
+                <p className={styles.listParagraph}>{content}</p>
+                <button 
+                    className={styles.listDeleteComment}
+                    onClick={handleDeleteComment} 
+                    title="Deletar comentário"
+                >
+                    <Trash size={20} />
+                </button>
+            </div>    
+        </div>
     );
 }

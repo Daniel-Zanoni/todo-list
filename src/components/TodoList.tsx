@@ -1,12 +1,13 @@
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 
+import { HeaderList } from './HeaderList';
+import { List } from './List';
+
 import { PlusCircle } from 'phosphor-react';
 
-import styles from './FormCreateList.module.css';
-import { List } from './List';
-import { HeaderList } from './HeaderList';
+import styles from './TodoList.module.css';
 
-export function FormCreateList() {
+export function TodoList() {
 
     const [lists, setLists] = useState(['']);
     const [newTextLists, setnewTextLists] = useState('');
@@ -18,7 +19,7 @@ export function FormCreateList() {
         setnewTextLists('');
     }
 
-    function handleNewTextListChange(event: ChangeEvent<HTMLInputElement>) {
+    function handleNewTextListOnChange(event: ChangeEvent<HTMLInputElement>) {
         event.target.setCustomValidity('');
         setnewTextLists(event.target.value);
     }
@@ -35,29 +36,29 @@ export function FormCreateList() {
     }
 
     return (
-        <div className={styles.headerTodo}>
-            <form onSubmit={handleCreateNewList} className={styles.headerTodoForm}>
-                <input 
-                    className={styles.headerTodoInput}
-                    name="list"
-                    placeholder="Adicione uma nova tarefa..."
-                    onChange={handleNewTextListChange}
-                    onInvalid={handleNewListInvalid}
-                    required
-                />
-                <button
-                    className={styles.headerTodoButton} 
-                    type="submit" 
-                    title="Criar uma nova tarefa"
-                    disabled={isNewEmptyList}
-                >
-                    Criar
-                    <PlusCircle size={20} />
-                </button>
-            </form>
-            <HeaderList 
-                
-            />
+        <div className={styles.contentTodo}>
+            <div>
+                <form onSubmit={handleCreateNewList} className={styles.headerTodoForm}>
+                    <input 
+                        className={styles.headerTodoInput}
+                        name="list"
+                        placeholder="Adicione uma nova tarefa..."
+                        onChange={handleNewTextListOnChange}
+                        onInvalid={handleNewListInvalid}
+                        required
+                    />
+                    <button
+                        className={styles.headerTodoButton} 
+                        type="submit" 
+                        title="Criar uma nova tarefa"
+                        disabled={isNewEmptyList}
+                    >
+                        Criar
+                        <PlusCircle size={20} />
+                    </button>
+                </form>
+            </div>
+            <HeaderList />
             {lists.map(list => {
                 return (
                     <List 
