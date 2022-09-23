@@ -1,0 +1,20 @@
+.listsTodo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.listsTodo svg {
+    margin-bottom: 1rem;
+}
+
+.listsTodo strong {
+    line-height: 140%;
+    color: var(--gray-300);
+}
+
+.listsTodo p {
+    line-height: 140%;
+    color: var(--gray-300);
+}

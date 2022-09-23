@@ -1,0 +1,37 @@
+.contentHeaderTodo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 4.0625rem;
+    padding-bottom: 1.5rem;
+
+    border-bottom: 1px solid var(--gray-400);
+}
+
+.contentHeaderTodo label {
+    margin-right: 0.5rem;
+}
+
+.contentHeaderTodo .contentHeaderTodoCreate {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.contentHeaderTodo .contentHeaderTodoFineshed {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: var(--purple);
+}
+
+.contentHeaderTodoCount {
+    padding: 0.125rem 0.5rem;
+    background-color: var(--gray-400);
+    border-radius: 50%;
+
+    font-size: 0.75rem;
+    line-height: 1.5;
+    font-weight: bold;
+    color: var(--gray-200);
+}
