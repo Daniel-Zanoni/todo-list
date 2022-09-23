@@ -10,6 +10,7 @@ export function FormCreateList() {
 
     const [lists, setLists] = useState(['']);
     const [newTextLists, setnewTextLists] = useState('');
+    const isNewEmptyList = newTextLists.length === 0;
 
     function handleCreateNewList(event: FormEvent) {
         event.preventDefault();
@@ -34,37 +35,38 @@ export function FormCreateList() {
     }
 
     return (
-        <>
-            <div className={styles.headerTodo}>
-                <form onSubmit={handleCreateNewList} className={styles.headerTodoForm}>
-                    <input 
-                        className={styles.headerTodoInput}
-                        name="list"
-                        placeholder="Adicione uma nova tarefa..."
-                        onChange={handleNewTextListChange}
-                        onInvalid={handleNewListInvalid}
-                        required
+        <div className={styles.headerTodo}>
+            <form onSubmit={handleCreateNewList} className={styles.headerTodoForm}>
+                <input 
+                    className={styles.headerTodoInput}
+                    name="list"
+                    placeholder="Adicione uma nova tarefa..."
+                    onChange={handleNewTextListChange}
+                    onInvalid={handleNewListInvalid}
+                    required
+                />
+                <button
+                    className={styles.headerTodoButton} 
+                    type="submit" 
+                    title="Criar uma nova tarefa"
+                    disabled={isNewEmptyList}
+                >
+                    Criar
+                    <PlusCircle size={20} />
+                </button>
+            </form>
+            <HeaderList 
+                
+            />
+            {lists.map(list => {
+                return (
+                    <List 
+                        key={list}
+                        content={list}
+                        onDeleteList={deleteList}
                     />
-                    <button
-                        className={styles.headerTodoButton} 
-                        type="submit" 
-                        title="Criar uma nova tarefa"
-                    >
-                        Criar
-                        <PlusCircle size={20} />
-                    </button>
-                </form>
-                <HeaderList />
-                {lists.map(list => {
-                    return (
-                        <List 
-                            key={list}
-                            content={list}
-                            onDeleteList={deleteList}
-                        />
-                    );
-                })}
-            </div>
-        </>
+                );
+            })}
+        </div>
     );
 }

@@ -1,6 +1,5 @@
 import { Header } from './components/Header';
 import { FormCreateList } from './components/FormCreateList';
-import { EmptyList } from './components/EmptyList';
 
 import styles from './App.module.css';
 
