@@ -53,19 +53,26 @@
     line-height: 140%;
 }
 
+.listParagraphDone {
+    font-size: 0.875rem;
+    color: var(--gray-300);
+    text-decoration: line-through;
+    line-height: 140%;
+}
+
 .list .listDeleteComment {
     background: transparent;
     border: 0;
     color: var(--gray-400);
     cursor: pointer;
 
-    padding: 2px;
     line-height: 0;
     border-radius: 2px;
 }
 
-.list .listDeleteComment:hover {
-    color: var(--blue-dark);
+.list .listDeleteComment svg:hover {
+    color: var(--danger);
+    background-color: var(--gray-400);
 }
 
 .list .listDeleteComment svg {

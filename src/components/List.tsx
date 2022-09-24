@@ -14,6 +14,7 @@ interface ListProps {
 export function List({ content, onDeleteList }: ListProps) {
 
     const [completedList, setCompletedList] = useState(0);
+    const [handleInputCheck, setHandleInputCheck] = useState(false);
 
     function handleDeleteComment() {
         onDeleteList(content);
@@ -35,19 +36,25 @@ export function List({ content, onDeleteList }: ListProps) {
             <div className={styles.list}>
                 <Checkbox.Root 
                     className={styles.listInputCheckbox}
+                    onCheckedChange={(status) => {
+                        status ? setHandleInputCheck(true) : setHandleInputCheck(false);
+                    }}
                     onClick={handleCompletedList}
                 >
                     <Checkbox.Indicator>
-                        <Check weight='bold' className={styles.listInputCheckboxChecked} />
+                        <Check weight="bold" />
                     </Checkbox.Indicator>
                 </Checkbox.Root>
-                <p className={styles.listParagraph}>{content}</p>
+                <p 
+                    className={handleInputCheck === false ? styles.listParagraph : styles.listParagraphDone}>
+                    {content}
+                </p>
                 <button 
                     className={styles.listDeleteComment}
                     onClick={handleDeleteComment} 
                     title="Deletar comentário"
                 >
-                    <Trash size={20} />
+                    <Trash size={22} />
                 </button>
             </div>    
         </div>

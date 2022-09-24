@@ -40,9 +40,10 @@ export function TodoList() {
             <div>
                 <form onSubmit={handleCreateNewList} className={styles.headerTodoForm}>
                     <input 
-                        className={styles.headerTodoInput}
                         name="list"
                         placeholder="Adicione uma nova tarefa..."
+                        value={newTextLists}
+                        className={styles.headerTodoInput}
                         onChange={handleNewTextListOnChange}
                         onInvalid={handleNewListInvalid}
                         required
