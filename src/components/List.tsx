@@ -12,23 +12,10 @@ interface ListProps {
 }
 
 export function List({ content, onDeleteList }: ListProps) {
-
-    const [completedList, setCompletedList] = useState(0);
-    const [handleInputCheck, setHandleInputCheck] = useState(false);
+    const [handleInputChecked, setHandleInputChecked] = useState(false);
 
     function handleDeleteComment() {
         onDeleteList(content);
-    }
-
-    function handleCompletedList() {
-        setCompletedList((state) => {
-            return state +1;
-        });
-    }
-
-    function handleSubmitCountCompletedList(count: number) {
-        count = completedList;
-        return count;
     }
 
     return (
@@ -37,16 +24,15 @@ export function List({ content, onDeleteList }: ListProps) {
                 <Checkbox.Root 
                     className={styles.listInputCheckbox}
                     onCheckedChange={(status) => {
-                        status ? setHandleInputCheck(true) : setHandleInputCheck(false);
+                        status ? setHandleInputChecked(true) : setHandleInputChecked(false);
                     }}
-                    onClick={handleCompletedList}
                 >
                     <Checkbox.Indicator>
                         <Check weight="bold" />
                     </Checkbox.Indicator>
                 </Checkbox.Root>
                 <p 
-                    className={handleInputCheck === false ? styles.listParagraph : styles.listParagraphDone}>
+                    className={handleInputChecked === false ? styles.listParagraph : styles.listParagraphDone}>
                     {content}
                 </p>
                 <button 
