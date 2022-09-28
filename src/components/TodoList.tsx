@@ -8,7 +8,7 @@ import { PlusCircle } from 'phosphor-react';
 import styles from './TodoList.module.css';
 
 export function TodoList() {
-    const [lists, setLists] = useState(['Tomar um café bem quentinho pela manhã :)']);
+    const [lists, setLists] = useState(['']);
     const [newTextLists, setnewTextLists] = useState('');
     const isNewEmptyList = newTextLists.length === 0;
 
