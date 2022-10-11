@@ -4,9 +4,9 @@ import { HeaderList } from './HeaderList';
 import { List } from './List';
 
 import { PlusCircle } from 'phosphor-react';
+import { EmptyList } from './EmptyList';
 
 import styles from './TodoList.module.css';
-import { EmptyList } from './EmptyList';
 
 export function TodoList() {
     const [lists, setLists] = useState<string[]>([]);

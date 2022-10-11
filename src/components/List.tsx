@@ -13,7 +13,7 @@ interface ListProps {
 
 export function List({ content, onDeleteList }: ListProps) {
     const [handleInputChecked, setHandleInputChecked] = useState(false);
-
+    
     function handleDeleteComment() {
         onDeleteList(content);
     }
