@@ -6,11 +6,13 @@ import { List } from './List';
 import { PlusCircle } from 'phosphor-react';
 
 import styles from './TodoList.module.css';
+import { EmptyList } from './EmptyList';
 
 export function TodoList() {
-    const [lists, setLists] = useState(['']);
+    const [lists, setLists] = useState<string[]>([]);
     const [newTextLists, setnewTextLists] = useState('');
     const isNewEmptyList = newTextLists.length === 0;
+    const isEmptyList = lists.length === 0;
 
     function handleCreateNewList(event: FormEvent) {
         event.preventDefault();
@@ -59,15 +61,17 @@ export function TodoList() {
                 </form>
             </div>
             <HeaderList />
-            {lists.map(list => {
-                return (
-                    <List 
-                        key={list}
-                        content={list}
-                        onDeleteList={deleteList}
-                    />
-                );
-            })}
+            { isEmptyList ? <EmptyList /> : 
+                lists.map(list => {
+                    return (
+                        <List 
+                            key={list}
+                            content={list}
+                            onDeleteList={deleteList}
+                        />
+                    );
+                })
+            }
         </div>
     );
 }
