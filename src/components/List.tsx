@@ -5,7 +5,6 @@ import * as Checkbox from '@radix-ui/react-checkbox';
 import { Check, Trash } from 'phosphor-react';
 
 import styles from './List.module.css';
-import { EmptyList } from './EmptyList';
 
 interface ListProps {
     content: string;
@@ -18,6 +17,7 @@ export function List({ content, onDeleteList }: ListProps) {
     function handleDeleteComment() {
         onDeleteList(content);
     }
+
     return (
         <div>
             <div className={styles.list}>

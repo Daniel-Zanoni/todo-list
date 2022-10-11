@@ -11,8 +11,11 @@ import { EmptyList } from './EmptyList';
 export function TodoList() {
     const [lists, setLists] = useState<string[]>([]);
     const [newTextLists, setnewTextLists] = useState('');
+
     const isNewEmptyList = newTextLists.length === 0;
     const isEmptyList = lists.length === 0;
+
+    const countLists = lists.length;
 
     function handleCreateNewList(event: FormEvent) {
         event.preventDefault();
@@ -60,9 +63,10 @@ export function TodoList() {
                     </button>
                 </form>
             </div>
-            <HeaderList />
-            { isEmptyList ? <EmptyList /> : 
-                lists.map(list => {
+            <HeaderList countLists={countLists} />
+            { isEmptyList 
+                ? <EmptyList /> 
+                : lists.map(list => {
                     return (
                         <List 
                             key={list}
