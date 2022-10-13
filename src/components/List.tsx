@@ -13,7 +13,7 @@ interface ListProps {
 
 export function List({ content, onDeleteList }: ListProps) {
     const [handleInputChecked, setHandleInputChecked] = useState(false);
-    
+
     function handleDeleteComment() {
         onDeleteList(content);
     }
@@ -37,7 +37,7 @@ export function List({ content, onDeleteList }: ListProps) {
                 </p>
                 <button 
                     className={styles.listDeleteComment}
-                    onClick={handleDeleteComment} 
+                    onClick={handleDeleteComment}
                     title="Deletar comentário"
                 >
                     <Trash size={22} />
